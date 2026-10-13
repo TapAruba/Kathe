@@ -219,7 +219,7 @@ nav a:hover::after,nav a.active::after{transform:scaleX(1);transform-origin:left
 .hero-frame .slide:nth-child(1){animation-delay:-1.5s;}
 .hero-frame .slide:nth-child(2){animation-delay:7.5s;}
 .hero-frame .slide:nth-child(3){animation-delay:16.5s;}
-.hero-frame .slide img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;animation:kenburns 27s linear infinite;animation-delay:inherit;filter:contrast(1.04) saturate(1.04);}
+.hero-frame .slide img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;animation:kenburns 27s linear infinite;animation-delay:inherit;filter:contrast(1.04) saturate(1.04);}
 @keyframes slideFade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
 @keyframes kenburns{0%{transform:scale(1.02)}39%{transform:scale(1.07)}100%{transform:scale(1.07)}}
 /* oscurecido parejo y suave (el local se sigue viendo), un poco más al centro para que resalte el logo */
@@ -554,26 +554,6 @@ p.section-lead{font-size:17px;line-height:1.8;color:var(--text-dim);font-weight:
 .essence-card .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;color:var(--accent);margin-bottom:18px;}
 .essence-card p{font-size:15px;line-height:1.75;color:#B9BCC2;font-weight:300;}
 
-/* ============ DUEÑOS ============ */
-.owners{display:grid;grid-template-columns:1fr 1fr 0.9fr;gap:20px;align-items:stretch;}
-.owner{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--border-accent);aspect-ratio:9/14;background:#111;cursor:zoom-in;}
-.owner img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);}
-.owner:hover img{transform:scale(1.03);}
-.owner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.85));pointer-events:none;}
-.owner-cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;}
-.owner-cap .role{font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;color:var(--accent-bright);text-transform:uppercase;}
-.owner-cap h3{font-family:var(--font-display);font-size:22px;color:#fff;margin-top:6px;letter-spacing:0.03em;}
-.owner-text{border:1px solid var(--border);border-radius:22px;background:var(--card);padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;}
-.owner-text .q{font-family:var(--font-serif);font-style:italic;font-size:26px;line-height:1.35;color:var(--white-ish);}
-.owner-text .q::before{content:'“';display:block;font-family:var(--font-display);font-size:60px;line-height:0.6;color:var(--gold);margin-bottom:12px;font-style:normal;}
-.owner-text .sig small{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;}
-.owner-text .sig strong{display:block;font-family:var(--font-display);font-size:20px;color:var(--white-ish);margin-top:6px;}
-.owner-text .sig span{display:block;font-size:13px;color:var(--text-mute);margin-top:4px;}
-.owner-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.owner-stats div{border:1px solid var(--border);border-radius:14px;padding:16px;}
-.owner-stats b{display:block;font-family:var(--font-display);font-size:26px;}
-.owner-stats span{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.14em;color:var(--text-mute);text-transform:uppercase;}
-
 /* ============ GALERIA ============ */
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:44px;}
 .gallery-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--border);cursor:zoom-in;background:#151517;}
@@ -704,8 +684,6 @@ footer{border-top:1px solid var(--border);background:#08080A;padding:80px 0 36px
   .mobile-bar .mb-txt{font-size:13px;color:var(--white-ish);line-height:1.4;min-width:0;}
   .mobile-bar .mb-txt small{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;color:var(--text-mute);text-transform:uppercase;}
   .mobile-bar .mb-total{font-family:var(--font-display);font-weight:800;font-size:20px;white-space:nowrap;}
-  .owners{grid-template-columns:1fr 1fr;}
-  .owner-text{grid-column:1/-1;}
 }
 @media (max-width:900px){
   .essence-grid{grid-template-columns:1fr;}
@@ -742,8 +720,6 @@ footer{border-top:1px solid var(--border);background:#08080A;padding:80px 0 36px
   .pkg-body{padding:6px 18px 24px;}
   .pkg-head{padding:26px 18px 18px;}
   .pkg-list li{font-size:14.5px;}
-  .owners{grid-template-columns:1fr;}
-  .owner{aspect-ratio:4/5;}
   .amenities{grid-template-columns:1fr 1fr;}
   .amenity:nth-child(odd)::before{display:none;}
   .amenity:nth-child(4)::before{display:block;}
@@ -834,7 +810,7 @@ html:not(.js) .hero-frame .slide:first-child{animation:none;opacity:1;}
   .time-slot{padding:14px 0;font-size:14px;}
   .field input,.field textarea{font-size:16px;padding:15px 14px;}
   .field label{font-size:11px;}
-  /* estudio, esencia, dueños, reseñas, ubicación */
+  /* estudio, esencia, reseñas, ubicación */
   .studio-grid{gap:14px;}
   .amenities{margin-top:40px;}
   .amenity{padding:30px 16px;gap:14px;}
@@ -843,10 +819,6 @@ html:not(.js) .hero-frame .slide:first-child{animation:none;opacity:1;}
   .essence-card{padding:36px 26px;}
   .essence-card .tag{font-size:11.5px;}
   .essence-card p{font-size:16px;line-height:1.8;}
-  .owners{gap:22px;}
-  .owner-text{padding:34px 26px;}
-  .owner-text .q{font-size:25px;}
-  .owner-cap .role{font-size:11px;}
   .gallery-grid{gap:12px;}
   .reviews-grid{gap:20px;}
   .review-card{padding:34px 26px;}
@@ -964,7 +936,6 @@ header:not(.scrolled) nav a{text-shadow:0 1px 10px rgba(0,0,0,0.6);}
         <li><a href="#paquetes">Paquetes</a></li>
         <li><a href="#reserva">Reservar</a></li>
         <li><a href="#estudio">El Estudio</a></li>
-        <li><a href="#duenos">Los Dueños</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#resenas">Reseñas</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
@@ -986,7 +957,6 @@ header:not(.scrolled) nav a{text-shadow:0 1px 10px rgba(0,0,0,0.6);}
   <a href="#paquetes">Paquetes</a>
   <a href="#reserva">Reservar</a>
   <a href="#estudio">El Estudio</a>
-  <a href="#duenos">Los Dueños</a>
   <a href="#galeria">Galería</a>
   <a href="#resenas">Reseñas</a>
   <a href="#ubicacion">Ubicación</a>
@@ -1355,42 +1325,10 @@ header:not(.scrolled) nav a{text-shadow:0 1px 10px rgba(0,0,0,0.6);}
   </div>
 </section>
 
-<!-- ============ LOS DUEÑOS ============ -->
-<section class="section-pad section-top-border" id="duenos">
-  <div class="wrap">
-    <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="label">La Casa</span></div>
-    <h2 class="section-title gradient-text reveal">Los dueños detrás de la silla.</h2>
-    <p class="section-lead reveal">Detrás de cada corte están sus dueños. Construyen confianza, imagen y personalidad con la misma regla de siempre: precisión en cada pasada.</p>
-
-    <div class="owners">
-      <figure class="owner reveal" data-lightbox="duenos" data-full="img/equipo/dueno-1.webp" data-caption="Silver House Barber">
-        <img src="img/equipo/dueno-1.webp" alt="Uno de los dueños de Silver House Barber" loading="lazy">
-        <figcaption class="owner-cap"><div class="role">Dueño · Barbero</div><h3>Silver House</h3></figcaption>
-      </figure>
-      <figure class="owner reveal" data-lightbox="duenos" data-full="img/equipo/dueno-2.webp" data-caption="Silver House Barber">
-        <img src="img/equipo/dueno-2.webp" alt="Uno de los dueños de Silver House Barber" loading="lazy">
-        <figcaption class="owner-cap"><div class="role">Dueño · Barbero</div><h3>Silver House</h3></figcaption>
-      </figure>
-      <div class="owner-text reveal">
-        <p class="q">Construimos confianza, imagen y personalidad en cada corte.</p>
-        <div class="sig">
-          <small>Dirección</small>
-          <strong>Omar Silvera</strong>
-          <span>Fundador · Master Barber · 17 años de experiencia</span>
-        </div>
-        <div class="owner-stats">
-          <div><b class="silver-text">2019</b><span>Desde</span></div>
-          <div><b class="silver-text">+2.000</b><span>Clientes</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ GALERIA ============ -->
 <section class="section-pad section-top-border section-alt" id="galeria">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">06</span><span class="line"></span><span class="label">El Trabajo</span></div>
+    <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="label">El Trabajo</span></div>
     <h2 class="section-title gradient-text reveal">Cada corte, una firma.</h2>
     <p class="section-lead reveal">Un vistazo al detalle, la técnica y el resultado que define a Silver House Barber.</p>
 
@@ -1425,7 +1363,7 @@ header:not(.scrolled) nav a{text-shadow:0 1px 10px rgba(0,0,0,0.6);}
 <!-- ============ RESEÑAS ============ -->
 <section class="section-pad section-top-border" id="resenas">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">07</span><span class="line"></span><span class="label">Lo Que Dicen</span></div>
+    <div class="eyebrow"><span class="num">06</span><span class="line"></span><span class="label">Lo Que Dicen</span></div>
     <h2 class="section-title gradient-text reveal">La confianza se nota en el resultado.</h2>
     <p class="section-lead reveal">Más de 1.000 personas siguen de cerca el trabajo de Silver House Barber en Instagram.</p>
 
@@ -1470,7 +1408,7 @@ header:not(.scrolled) nav a{text-shadow:0 1px 10px rgba(0,0,0,0.6);}
 <!-- ============ UBICACION ============ -->
 <section class="section-pad section-top-border section-alt" id="ubicacion">
   <div class="wrap">
-    <div class="eyebrow"><span class="num">08</span><span class="line"></span><span class="label">Visitanos</span></div>
+    <div class="eyebrow"><span class="num">07</span><span class="line"></span><span class="label">Visitanos</span></div>
     <h2 class="section-title gradient-text reveal">La casa te espera.</h2>
     <p class="section-lead reveal">En el corazón de CABA. Reservá online o escribinos por WhatsApp.</p>
 
@@ -1523,8 +1461,7 @@ header:not(.scrolled) nav a{text-shadow:0 1px 10px rgba(0,0,0,0.6);}
           <li><a href="#paquetes">Paquetes</a></li>
           <li><a href="#reserva">Reservar</a></li>
           <li><a href="#estudio">El Estudio</a></li>
-          <li><a href="#duenos">Los Dueños</a></li>
-          <li><a href="#galeria">Galería</a></li>
+            <li><a href="#galeria">Galería</a></li>
           <li><a href="#resenas">Reseñas</a></li>
         </ul>
       </div>
@@ -1578,7 +1515,7 @@ var HORARIO = { abre: 9*60, cierra: 20*60, ultimoTurno: 19*60 + 30, intervalo: 3
 var DIAS_A_MOSTRAR = 28;
 // Barberos para el paso 2 del reservador.
 var BARBEROS = [
-  { id:'omar', nombre:'Omar Silvera', rol:'Fundador · Master Barber', detalle:'17 años de experiencia', iniciales:'OS' },
+  { id:'omar', nombre:'Omar Silvera', rol:'Fundador · Master Barber', detalle:'+7 años de experiencia', iniciales:'OS' },
   { id:'cualquiera', nombre:'Primer barbero disponible', rol:'Equipo Silver House', detalle:'Te asignamos el que esté libre en tu horario', iniciales:'' }
 ];
 var DIRECCION = 'Av. La Plata 1185, CABA, Argentina';
@@ -1721,7 +1658,7 @@ if ('IntersectionObserver' in window){
       }
     });
   }, { rootMargin:'-45% 0px -50% 0px' });
-  ['paquetes','reserva','estudio','duenos','galeria','resenas','ubicacion'].forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
+  ['paquetes','reserva','estudio','galeria','resenas','ubicacion'].forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
 }
 
 /* =========================================================

@@ -9,7 +9,6 @@ silverhouse-barber/
 ├── fonts/                  ← Cinzel, Cormorant Garamond, Hanken Grotesk, Space Mono (auto-alojadas)
 ├── img/
 │   ├── estudio/            ← fotos reales del local (hero y sección "El Estudio")
-│   ├── equipo/             ← fotos de los dueños
 │   ├── paquetes/           ← fotos de cada paquete (Unsplash, ver CREDITS.md): originales + recortes -800/-1200 y miniaturas -thumb
 │   └── og-silverhouse.jpg  ← imagen para compartir en WhatsApp / redes
 ├── silverhouse-logo.png    ← logo original (lo usa Google vía JSON-LD)

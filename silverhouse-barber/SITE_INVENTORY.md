@@ -13,11 +13,10 @@ Una sola página (`index.html`). Para encontrar cada parte, buscá el comentario
 | 02 | **Reserva online** | `#reserva` | Asistente de 5 pasos: Paquete → Barbero → Día → Horario → Datos y confirmación. Resumen lateral "Tu reserva" (en celular, barra fija abajo). |
 | 03 | El Estudio | `#estudio` | 3 fotos reales del local (visor ampliable), 5 comodidades del flyer, frase "Cuidá tu imagen. Cuidá tu bienestar." |
 | 04 | La Esencia | `#esencia` | Misión / Visión / Valores. |
-| 05 | Los Dueños | `#duenos` | Fotos de los dueños + cita y firma de Omar Silvera. |
-| 06 | Galería | `#galeria` | 5 fotos de trabajos (visor ampliable) + botón a Instagram. |
-| 07 | Reseñas | `#resenas` | 3 reseñas **de muestra** (el sitio lo aclara) — reemplazar por reseñas reales. |
+| 05 | Galería | `#galeria` | 5 fotos de trabajos (visor ampliable) + botón a Instagram. |
+| 06 | Reseñas | `#resenas` | 3 reseñas **de muestra** (el sitio lo aclara) — reemplazar por reseñas reales. |
 | — | Banner | `.cta-banner` | "Cuidá tu imagen. Cuidá tu bienestar." con el sello de la barbería. |
-| 08 | Ubicación | `#ubicacion` | Dirección (link a Google Maps), WhatsApp, horario, Instagram, botón "Cómo llegar" y mapa. |
+| 07 | Ubicación | `#ubicacion` | Dirección (link a Google Maps), WhatsApp, horario, Instagram, botón "Cómo llegar" y mapa. |
 | — | Footer + WhatsApp flotante | `footer`, `#waFab` | |
 
 ## Paquetes y precios
@@ -57,8 +56,7 @@ No hay base de datos: la barbería confirma cada turno por WhatsApp (el sitio lo
 
 | Carpeta | Uso | Notas |
 |---|---|---|
-| `img/estudio/estudio-1/2/3.webp` (+ `-sm`) | Hero y sección El Estudio | Fotos reales del local, con ajuste de color/contraste. |
-| `img/equipo/dueno-1.webp`, `dueno-2.webp` | Los Dueños | Para poner nombres, editar los `<figcaption class="owner-cap">`. |
+| `img/estudio/estudio-1/2/3.webp` (+ `-sm`) | Hero y sección El Estudio | Fotos reales del local, con ajuste de color/contraste y recortadas arriba para que se vea menos el techo. |
 | `img/paquetes/*.webp` | Tarjetas de paquetes y una foto de la galería | Unsplash (uso comercial gratuito), ver `img/paquetes/CREDITS.md`. Las tarjetas usan recortes livianos (`premium-800.webp` / `-1200.webp`; Jubilados también `-v640`/`-v960` verticales para escritorio) y el reservador las miniaturas `*-thumb.webp` (`data-img`). Para cambiar una foto, reemplazar el original y regenerar los recortes con los comandos de abajo. |
 | Galería (4 fotos) | `#galeria` | Fotos de stock de Unsplash del sitio original. Ideal: reemplazar por trabajos reales. |
 

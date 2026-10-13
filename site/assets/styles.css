@@ -541,7 +541,12 @@ html.fx-on .head.in .eyebrow::after{transform:scaleX(1)}
 .voices-rail .slides{position:static;display:grid;overflow:visible}
 .voices-rail .slide{position:static;grid-area:1/1;align-self:start}
 .voices-rail .slide:not(.on){pointer-events:none}
-.voices-rail .vc{max-width:640px;margin:0 auto;padding:48px 44px 40px;text-align:center;align-items:center}
+/* the bare .vc subgrid rule below (for .vgrid's 3-column baseline alignment)
+   would otherwise also catch this card and collapse stars/quote/caption
+   into the same row -- opt this card back into plain flex layout */
+.voices-rail .vc{display:flex;grid-template-rows:none;grid-row:auto;
+  max-width:640px;margin:0 auto;padding:48px 44px 40px;text-align:center;align-items:center}
+.voices-rail .vc figcaption{margin-top:auto;align-self:center;padding-top:26px}
 .voices-rail .stars{justify-content:center}
 .voices-rail .vc blockquote{font-size:19px}
 .voices-ticks{justify-content:center;margin-top:28px}

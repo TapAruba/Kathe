@@ -38,3 +38,13 @@ python3 -m http.server 8000   # abrir http://localhost:8000
 
 Alternativa sin Git: arrastrar la carpeta `silverhouse-barber/` a vercel.com/new (o `npx vercel --prod` dentro de la carpeta).
 El archivo `.vercelignore` evita publicar las capturas y los `.md`.
+
+## Dashboard de Tap Aruba
+
+El sitio está conectado al dashboard de Tap Aruba (app.taparuba.com), igual que los demás negocios:
+
+- **Visitas:** al abrir la página se manda una visita a `app.taparuba.com/api/track`. Se ve en el dashboard, en **Resumen** y **Sitio web**.
+- **Reservas:** al tocar "Confirmar por WhatsApp" se manda una copia de la reserva a `app.taparuba.com/api/leads`. Se ve en **Sitio web → Clientes potenciales**. WhatsApp se abre igual que antes.
+- Se configura en `index.html` → `TAP_SITE` (hoy `silverhouse-web`, el slug de la experiencia "web" del negocio). Si queda vacío, no se manda nada. En localhost tampoco se manda nada.
+- **Alta del negocio:** `tap-aruba/onboard-silverhouse.mjs`. Necesita las claves de Supabase de tap-platform y el email del dueño. Si se da de alta desde HQ, copiar a `TAP_SITE` el slug que genere HQ.
+- **Guía del dueño (español):** `docs/Silver-House-Guia-del-Dashboard.pdf` y `docs/Silver-House-Que-Incluye.pdf`. La fuente está en `docs/guia-dashboard/`; se regenera con `node build.js guia.html ../Silver-House-Guia-del-Dashboard.pdf`.

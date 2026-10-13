@@ -44,13 +44,15 @@ Una sola página (`index.html`). Para encontrar cada parte, buscá el comentario
 
 Atajos automáticos: botón "Próximo horario para reservar" en el hero, chips "Primer horario" y "Este sábado" en el paso de fecha, botones "Reservar" en cada paquete, y links directos `?paquete=premium` o `#reservar-oro`.
 
-No hay base de datos: la barbería confirma cada turno por WhatsApp (el sitio lo aclara). Ya no se muestran horarios "ocupados" inventados.
+No hay base de datos propia: la barbería confirma cada turno por WhatsApp (el sitio lo aclara). Ya no se muestran horarios "ocupados" inventados.
+Además, cada reserva se copia al dashboard de Tap Aruba (**Sitio web → Clientes potenciales**) y cada visita se cuenta en **Resumen** y **Sitio web**. Ver la sección "Dashboard de Tap Aruba" del README.
 
 **Configuración** (al principio del `<script>` principal, bloque "CONFIGURACIÓN"):
 - `WA_NUMBER` — número de WhatsApp.
 - `HORARIO` — apertura/cierre en minutos, `ultimoTurno` (último horario en que puede empezar un turno, hoy 19:30), intervalo de turnos, anticipación mínima, días cerrados (0 = domingo).
 - `BARBEROS` — lista de profesionales del paso 2 (agregar acá a los dueños / barberos con su nombre).
 - `DIAS_A_MOSTRAR` — cuántos días se pueden reservar.
+- `TAP_SITE` — slug del negocio en el dashboard de Tap Aruba (hoy `silverhouse-web`). Vacío = no se manda nada al dashboard.
 
 ## Fotos
 

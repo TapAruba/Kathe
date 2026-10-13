@@ -1519,6 +1519,10 @@ var BARBEROS = [
   { id:'cualquiera', nombre:'Primer barbero disponible', rol:'Equipo Silver House', detalle:'Te asignamos el que esté libre en tu horario', iniciales:'' }
 ];
 var DIRECCION = 'Av. La Plata 1185, CABA, Argentina';
+// Dashboard de Tap Aruba (app.taparuba.com): visitas y copia de cada reserva.
+// TAP_SITE = slug de la experiencia "web" del negocio en Tap Aruba. Vacío = no se envía nada.
+var TAP_SITE = 'silverhouse-web';
+var TAP_API = 'https://app.taparuba.com/api/';
 
 /* ========================================================= */
 var DIAS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
@@ -1982,6 +1986,51 @@ function calLinks(code){
   return { gcal: gcal, ics: ics };
 }
 
+/* ---------- Tap Aruba: visitas y reservas al dashboard ---------- */
+// Se manda con sendBeacon (texto plano, sin cookies): no frena la página ni el WhatsApp.
+// En local (localhost / 127.0.0.1 / archivo) no se manda nada.
+function tapSend(path, data){
+  var h = location.hostname;
+  if (!TAP_SITE || !h || h === 'localhost' || h === '127.0.0.1') return;
+  data.site = TAP_SITE;
+  var body = JSON.stringify(data);
+  try {
+    if (!(navigator.sendBeacon && navigator.sendBeacon(TAP_API + path, body))){
+      fetch(TAP_API + path, { method:'POST', body: body, keepalive:true, headers:{ 'Content-Type':'text/plain' } }).catch(function(){});
+    }
+  } catch(err){}
+}
+(function(){
+  var sid;
+  try {
+    sid = localStorage.getItem('tap-sid');
+    if (!sid){ sid = Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem('tap-sid', sid); }
+  } catch(err){ sid = Math.random().toString(36).slice(2); }
+  // Solo lo útil de la dirección: el paquete del link (?paquete=oro, #reservar-oro) o la sección (#reservar),
+  // y no los fbclid/utm de los anuncios.
+  var pkg = (location.search.match(/[?&]paquete=([a-z]+)/) || location.hash.match(/^#reservar-([a-z]+)$/) || [])[1];
+  var sec = /^#[a-z-]{2,24}$/.test(location.hash) && document.getElementById(location.hash.slice(1)) ? location.hash : '';
+  tapSend('track', { path: (location.pathname || '/') + (pkg ? '?paquete=' + pkg : sec), referrer: document.referrer || '', session: sid });
+})();
+// La primera línea del mensaje es la que se ve en la lista de "Clientes potenciales".
+function tapLead(cli, code){
+  tapSend('leads', {
+    name: cli.nombre,
+    phone: cli.telefono,
+    message: [
+      state.pkg.nombre + ' · ' + state.pro.nombre + ' · ' + fmtFecha(state.date) + ' · ' + state.time + ' hs',
+      'Paquete: ' + state.pkg.nombre + ' (' + formatPrice(state.pkg.precio) + ')',
+      'Barbero: ' + state.pro.nombre,
+      'Día: ' + fmtFecha(state.date) + ' (' + state.date + ')',
+      'Hora: ' + state.time + ' hs',
+      cli.telefono ? 'Celular: ' + cli.telefono : 'Celular: no lo dejó (escribe por WhatsApp)',
+      cli.nota ? 'Nota: ' + cli.nota : '',
+      'Código: ' + code
+    ].filter(Boolean).join('\n'),
+    source: 'Reservador web · ' + code
+  });
+}
+
 var lastIcs = '', lastCode = '';
 $('#clientForm').addEventListener('submit', function(e){
   e.preventDefault();
@@ -2011,6 +2060,7 @@ $('#clientForm').addEventListener('submit', function(e){
   var url = waUrl(msg);
   var win = window.open(url, '_blank', 'noopener');
   if (!win){ /* algunos navegadores devuelven null con noopener; igual se abre */ }
+  tapLead({ nombre:nombre, telefono:telefono, nota:nota }, code);
   var cal = calLinks(code);
   lastIcs = cal.ics; lastCode = code;
   $('#doneTitle').textContent = '¡Casi listo, ' + nombre.split(' ')[0] + '!';

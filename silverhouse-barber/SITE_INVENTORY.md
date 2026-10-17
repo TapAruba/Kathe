@@ -52,7 +52,7 @@ Además, cada reserva se copia al dashboard de Tap Aruba (**Sitio web → Client
 - `HORARIO` — apertura/cierre en minutos, `ultimoTurno` (último horario en que puede empezar un turno, hoy 19:30), intervalo de turnos, anticipación mínima, días cerrados (0 = domingo).
 - `BARBEROS` — lista de profesionales del paso 2 (agregar acá a los dueños / barberos con su nombre).
 - `DIAS_A_MOSTRAR` — cuántos días se pueden reservar.
-- `TAP_SITE` — slug del negocio en el dashboard de Tap Aruba (hoy `silverhouse-web`). Vacío = no se manda nada al dashboard.
+- `TAP_SITE` — slug del negocio en el dashboard de Tap Aruba (hoy `silver-house-barber-estudio-website`). Vacío = no se manda nada al dashboard.
 
 ## Fotos
 

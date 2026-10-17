@@ -45,6 +45,6 @@ El sitio está conectado al dashboard de Tap Aruba (app.taparuba.com), igual que
 
 - **Visitas:** al abrir la página se manda una visita a `app.taparuba.com/api/track`. Se ve en el dashboard, en **Resumen** y **Sitio web**.
 - **Reservas:** al tocar "Confirmar por WhatsApp" se manda una copia de la reserva a `app.taparuba.com/api/leads`. Se ve en **Sitio web → Clientes potenciales**. WhatsApp se abre igual que antes.
-- Se configura en `index.html` → `TAP_SITE` (hoy `silverhouse-web`, el slug de la experiencia "web" del negocio). Si queda vacío, no se manda nada. En localhost tampoco se manda nada.
-- **Alta del negocio:** `tap-aruba/onboard-silverhouse.mjs`. Necesita las claves de Supabase de tap-platform y el email del dueño. Si se da de alta desde HQ, copiar a `TAP_SITE` el slug que genere HQ.
+- Se configura en `index.html` → `TAP_SITE` (hoy `silver-house-barber-estudio-website`, el slug de la experiencia "web" que crea HQ). Si queda vacío, no se manda nada. En localhost tampoco se manda nada.
+- **Alta del negocio:** `tap-aruba/onboard-silverhouse.mjs`. Necesita las claves de Supabase de tap-platform y el email del dueño. Si se da de alta desde HQ (pasos en `docs/Silver-House-Pasos-para-activar.pdf`), el slug es el mismo; solo si HQ le agrega un sufijo hay que copiarlo a `TAP_SITE`.
 - **Guía del dueño (español):** `docs/Silver-House-Guia-del-Dashboard.pdf` y `docs/Silver-House-Que-Incluye.pdf`. La fuente está en `docs/guia-dashboard/`; se regenera con `node build.js guia.html ../Silver-House-Guia-del-Dashboard.pdf`.

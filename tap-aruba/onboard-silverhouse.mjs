@@ -9,8 +9,9 @@
 // correr, actualiza en lugar de duplicar.
 //
 // El sitio (silverhouse-barber/index.html, TAP_SITE) ya manda visitas y reservas con el
-// slug EXP_SLUG. Si se crea el cliente desde HQ en lugar de este script, el slug que HQ
-// genera es otro: copiarlo a TAP_SITE en el sitio.
+// slug EXP_SLUG. Son los mismos slugs que crea HQ con "Add a client" (nombre
+// "Silver House Barber · Estudio", tipo Other, solo Website Development), así que da igual
+// el camino: si el cliente ya se creó desde HQ, este script solo lo actualiza.
 import { readFileSync, existsSync } from 'node:fs';
 
 const envFile = process.argv[2] || new URL('../../tap-platform/.env.local', import.meta.url).pathname;
@@ -34,8 +35,8 @@ const api = async (path, opts = {}) => {
   return body;
 };
 
-const ORG_SLUG = 'silverhouse-barber';
-const EXP_SLUG = 'silverhouse-web';
+const ORG_SLUG = 'silver-house-barber-estudio';
+const EXP_SLUG = 'silver-house-barber-estudio-website';
 const SITE = 'silverhouse-barber-demo.vercel.app'; // cambiar por el dominio propio cuando exista
 const NAME = 'Silver House Barber · Estudio';
 

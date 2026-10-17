@@ -1,6 +1,6 @@
 // Numera capítulos, arma el índice con números de página y pone el pie en cada página.
 (function () {
-  var FOOT = 'Silver House Barber · Guía del dashboard';
+  var FOOT = document.body.getAttribute('data-foot') || 'Silver House Barber · Guía del dashboard';
   var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
   var toc = document.getElementById('toc');
   var n = 0;

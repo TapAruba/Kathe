@@ -31,8 +31,7 @@ h3.first{ margin-top:0 }
 .cover-logo{ width:58mm; height:auto; margin-left:-3mm; filter:drop-shadow(0 6px 18px rgba(0,0,0,.6)) }
 .cover-main{ margin-top:auto; margin-bottom:auto; padding-top:20mm }
 .cover .bar{ width:16mm; height:1.4mm; background:linear-gradient(90deg,#d9bf86,#a8844a); border-radius:1mm; margin-bottom:8mm }
-.cover h1{ font-family:'Cinzel', serif; font-weight:700; font-size:31pt; line-height:1.12; margin:0 0 6mm; letter-spacing:.01em;
-  background:linear-gradient(180deg,#ffffff 0%,#e4e6e9 55%,#b3b8bf 100%); -webkit-background-clip:text; background-clip:text; color:transparent }
+.cover h1{ font-family:'Cinzel', serif; font-weight:700; font-size:31pt; line-height:1.12; margin:0 0 6mm; letter-spacing:.01em; color:#e9ebee }
 .cover-main p{ color:#b9bcc2; font-size:11.5pt; max-width:125mm; margin:0 }
 .cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:8.6pt; color:#8d9097; line-height:1.7 }
 .powered{ text-align:right; font-size:8pt }

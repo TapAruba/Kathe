@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Silver House Barber · Pasos para activar</title>
+<link rel="stylesheet" href="../../silverhouse-barber/fonts/fonts.css">
+<link rel="stylesheet" href="guia.css">
+<style>
+  .status{ display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:2mm 0 3mm }
+  .status .card h4::before{ display:none }
+  .ok{ color:#1d7a4a } .todo{ color:var(--gold-ink) }
+  .status ul{ margin:0; padding-left:4.4mm; font-size:9.3pt; line-height:1.45 }
+  .status li{ margin-bottom:1mm }
+  .mono{ font-family:'Space Mono', monospace; font-size:8.6pt; background:var(--soft); padding:.3mm 1.3mm; border-radius:1mm; word-break:break-all; color:var(--ink) }
+  .warn{ background:#fbefee; border-left:1mm solid #b3473f; border-radius:0 1.6mm 1.6mm 0; padding:3mm 4mm; margin:3mm 0; font-size:9.4pt }
+  .warn > b:first-child{ color:#9c3a33; margin-right:1.5mm }
+  .dont{ list-style:none; padding:0; margin:0; font-size:9.3pt }
+  .dont li{ position:relative; padding:1.6mm 0 1.6mm 7mm; border-bottom:.3mm solid var(--line) }
+  .dont li::before{ content:'✕'; position:absolute; left:0; top:1.5mm; color:#b3473f; font-weight:800 }
+  .msg{ background:#d9fdd3; border-radius:2mm; padding:3.4mm 4mm; font-size:9.2pt; white-space:pre-wrap; line-height:1.45; border:.3mm solid #bfe6cc }
+  .lead-in{ font-size:10.6pt; color:var(--muted); margin-bottom:5mm }
+</style>
+</head>
+<body data-foot="Silver House Barber · Pasos para activar (uso interno de Tap Aruba)">
+
+<!-- ============ 1 ============ -->
+<section class="page" data-ch="Qué está listo y qué falta">
+  <h2 class="ch"><span class="n"></span>Qué está listo y qué falta</h2>
+  <p class="lead-in">Para el equipo de Tap Aruba: con estos pasos Silver House queda activo en el dashboard, igual que los demás negocios. Son unos 15 minutos en HQ.</p>
+
+  <div class="status">
+    <div class="card"><h4 class="ok">✓ Listo</h4>
+      <ul>
+        <li>Página con reservador de 5 pasos, publicada en <b>silverhouse-barber-demo.vercel.app</b>.</li>
+        <li>La página ya manda las visitas y una copia de cada reserva al dashboard, con el slug <span class="mono">silver-house-barber-estudio-website</span>.</li>
+        <li>Guía del dashboard en español, de 19 páginas, y la hoja “Qué incluye”.</li>
+        <li>El dashboard se probó con la marca de Silver House y datos de ejemplo.</li>
+      </ul>
+    </div>
+    <div class="card"><h4 class="todo">Falta</h4>
+      <ul>
+        <li>Crear el cliente en HQ (pasos 1 a 3).</li>
+        <li>Ponerle el logo y el color al dashboard (paso 4).</li>
+        <li>Hacer una prueba en vivo (paso 5).</li>
+        <li>Mandarle al dueño el link y los dos PDF (paso 6).</li>
+        <li>Agregar el precio del plan mensual a “Qué incluye”. Hoy no lo tiene.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Lo que necesitas tener a mano</h3>
+  <table class="t2">
+    <tr><td>Tu cuenta de HQ</td><td>Super admin en app.taparuba.com, con el código de 6 dígitos si tienes la verificación en dos pasos.</td></tr>
+    <tr><td>Email del dueño</td><td>Uno <b>nuevo</b>, en minúsculas, que no use otro cliente ni nadie de Tap Aruba. Si no, puede entrar al dashboard de otro negocio.</td></tr>
+    <tr><td>Al dueño disponible</td><td>El link para crear su contraseña sirve una sola vez y vence rápido (por defecto, en 1 hora). Avísale antes de crearlo.</td></tr>
+  </table>
+
+  <h3>Los valores exactos</h3>
+  <table class="t2">
+    <tr><td>Business name</td><td><span class="mono">Silver House Barber · Estudio</span></td></tr>
+    <tr><td>What kind of business</td><td><b>Other</b>. No dejes Restaurant ni elijas Salon &amp; Spa: crean pantallas que no van.</td></tr>
+    <tr><td>Servicio</td><td>Solo <b>Website Development</b>.</td></tr>
+    <tr><td>Address</td><td>Vacío. El mapa de HQ busca en Aruba.</td></tr>
+    <tr><td>Slug que debe quedar</td><td><span class="mono">silver-house-barber-estudio-website</span></td></tr>
+    <tr><td>Color de marca</td><td><span class="mono">#C9A86A</span></td></tr>
+    <tr><td>Logo</td><td><span class="mono">https://silverhouse-barber-demo.vercel.app/silverhouse-logo-480.webp</span></td></tr>
+    <tr><td>Domain</td><td><span class="mono">silverhouse-barber-demo.vercel.app</span>, sin https:// y sin barra final.</td></tr>
+  </table>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="page" data-ch="Crear el cliente en HQ">
+  <h2 class="ch"><span class="n"></span>Crear el cliente en HQ</h2>
+  <p>HQ está en inglés. Los botones van <b>en negrita</b>, tal como aparecen en pantalla.</p>
+
+  <h3>Paso 0. Revisar que no exista</h3>
+  <ol class="steps">
+    <li>Abre <span class="mono">app.taparuba.com/admin/clients/silver-house-barber-estudio</span>. Debe decir <b>Client not found.</b></li>
+    <li>Si abre un cliente, <b>detente</b>: ya se creó antes y uno nuevo saldría con otro slug.</li>
+  </ol>
+
+  <h3>Paso 1. Add a client: datos</h3>
+  <ol class="steps">
+    <li>Entra a <b>Clients</b> y toca <b>Add a client</b>, arriba a la derecha.</li>
+    <li><b>Business name</b>: <span class="mono">Silver House Barber · Estudio</span>.</li>
+    <li><b>What kind of business</b>: elige <b>Other</b>. Viene en Restaurant.</li>
+    <li><b>Owner’s email</b>: el email nuevo del dueño, en minúsculas. Hay que ponerlo acá, porque HQ no deja agregarlo después.</li>
+    <li>Deja <b>Address</b> vacío y toca <b>Next</b>.</li>
+  </ol>
+
+  <h3>Paso 2. Add a client: servicios y crear</h3>
+  <ol class="steps">
+    <li>En <b>What did they buy?</b> deja tildado <b>solo Website Development</b>.</li>
+    <li>Abajo tiene que decir <b>We will set up Website in their dashboard, right now.</b>, y nada más.</li>
+    <li>Toca <b>Create Silver House Barber · Estudio</b> y espera.</li>
+  </ol>
+
+  <h3>Paso 3. Copiar el link del dueño</h3>
+  <ol class="steps">
+    <li>En el recuadro <b>Send the owner this link so they can set a password</b>, toca <b>Copy the link</b> y pégalo ya en el WhatsApp para el dueño (paso 6). HQ no lo vuelve a mostrar.</li>
+    <li><b>No lo abras tú</b>: sirve una sola vez.</li>
+    <li>Toca <b>Open Silver House Barber · Estudio</b>, no <b>Close</b>. La dirección debe terminar en <span class="mono">/admin/clients/silver-house-barber-estudio</span>.</li>
+    <li>Confirma el slug: en <b>/admin/experiences</b> busca “silver”. Tiene que haber una sola fila <b>Website</b> con <span class="mono">/e/silver-house-barber-estudio-website</span>.</li>
+  </ol>
+  <div class="warn"><b>Si el slug sale distinto</b> (por ejemplo, con un sufijo al final), cópialo tal cual y pásaselo al desarrollador para cambiar <span class="mono">TAP_SITE</span> en la página. Hasta entonces, las reservas no llegan al dashboard, aunque WhatsApp sigue funcionando.</div>
+  <div class="warn"><b>Si no aparece el link</b> y dice <i>This email already had an account</i> o <i>owner login failed</i>, no repitas Add a client: crearía un cliente duplicado. Avisa.</div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="page" data-ch="Logo, color y dominio">
+  <h2 class="ch"><span class="n"></span>Logo, color y dominio</h2>
+  <h3 class="first">Paso 4a. El look Pro (logo y color de Silver House)</h3>
+  <ol class="steps">
+    <li>En la página del cliente baja hasta <b>Dashboard look</b> y toca <b>Pro (their brand)</b>.</li>
+    <li>En <b>Their main colour</b> borra el verde y escribe <span class="mono">#C9A86A</span>.</li>
+    <li>En <b>Logo for a dark background</b> pega <span class="mono">https://silverhouse-barber-demo.vercel.app/silverhouse-logo-480.webp</span>.</li>
+    <li>Toca <b>Save</b>. Debe aparecer <b>Saved. Their dashboard now shows their logo and colour.</b></li>
+  </ol>
+
+  <h3>Paso 4b. El dominio de la página</h3>
+  <ol class="steps">
+    <li>En <b>/admin/experiences</b> abre la fila <b>Website</b> de Silver House.</li>
+    <li>En <b>Domain</b> escribe <span class="mono">silverhouse-barber-demo.vercel.app</span>, sin https:// y sin barra final.</li>
+    <li>No cambies nada más y toca <b>Save changes</b>. En el dashboard aparece el botón <b>Visit site</b>.</li>
+  </ol>
+
+  <h3>Opcional. Tipo y datos del negocio</h3>
+  <ol class="steps">
+    <li>En el cliente, <b>Edit</b> → <b>Business type</b>: <b>Salon &amp; Spa</b> → <b>Save changes</b>. Solo cambia la etiqueta.</li>
+    <li><b>Open dashboard</b> → <b>Settings</b> → <b>Business profile</b>: teléfono <span class="mono">+54 9 11 3697-0220</span> y dirección <span class="mono">Av. La Plata 1185, CABA, Argentina</span> → <b>Save changes</b>. No toques el logo ni el color de esa pantalla: pisan el look Pro.</li>
+  </ol>
+
+  <h3>Qué no hacer</h3>
+  <ul class="dont">
+    <li>Tildar otros servicios (NFC, AI Receptionist, Social Media, E-commerce, POS) o crear con <b>Salon &amp; Spa</b> o con nada tildado. Agregan pantallas de turnos, tienda o links que no van con este negocio.</li>
+    <li>Repetir <b>Add a client</b> para conseguir otro link. Crea un cliente duplicado con otro slug, y los clientes no se pueden borrar.</li>
+    <li>Usar <b>Team → Invite member</b> con el email del dueño. Eso lo hace super admin de Tap Aruba.</li>
+    <li>Crear otra web con <b>Build an experience</b>. El dashboard leería la más vieja.</li>
+    <li>Tocar <b>Suspend</b> o <b>Archive</b> en el cliente nuevo. Se aplican al instante, sin confirmar.</li>
+    <li>Escribir la dirección en <b>Address</b> o en <b>Map location</b>. Busca en Aruba y pone mal el pin.</li>
+  </ul>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="page" data-ch="Prueba en vivo y mensaje al dueño">
+  <h2 class="ch"><span class="n"></span>Prueba en vivo y mensaje al dueño</h2>
+  <h3 class="first">Paso 5. Prueba en vivo</h3>
+  <ol class="steps">
+    <li>En el celular, abre <b>silverhouse-barber-demo.vercel.app</b> escribiendo la dirección o desde un link pegado en WhatsApp. Si la abres desde Vercel, HQ o el dashboard, la visita no se cuenta: está hecho así a propósito.</li>
+    <li>Haz una reserva con el nombre <b>PRUEBA Tap Aruba</b> y toca <b>Confirmar por WhatsApp</b>. Se abre WhatsApp: <b>no lo envíes</b>. La copia al dashboard ya salió.</li>
+    <li>En HQ: <b>Clients</b> → pestaña <b>Demos</b>, porque el cliente no aparece en Live hasta tener dominio propio → <b>Silver House Barber · Estudio</b> → <b>Open dashboard</b>.</li>
+    <li>Revisa que la barra lateral esté oscura, con el logo plateado y el dorado en el ítem activo.</li>
+    <li>Entra a <b>Website → Leads</b>. Debe estar <b>PRUEBA Tap Aruba</b> con el paquete, el barbero, el día y la hora. En <b>Website</b> tiene que haber por lo menos 1 visita.</li>
+    <li>Borra la prueba: tócala → <b>Delete</b> → confirma <b>Delete</b>. Después toca <b>Back to HQ</b>.</li>
+  </ol>
+  <div class="tip"><b>Si no llega</b> En la compu abre la página con las herramientas de desarrollador (F12) → Network, y filtra por “track” o “leads”. Un <b>404 unknown site</b> quiere decir que el slug no coincide con <span class="mono">TAP_SITE</span> (paso 3).</div>
+
+  <h3>Paso 6. Mandarle al dueño el link y los PDF</h3>
+  <p>Por WhatsApp, apenas creado el cliente. Adjunta <b>Silver-House-Guia-del-Dashboard.pdf</b> y <b>Silver-House-Que-Incluye.pdf</b>.</p>
+  <div class="msg">¡Hola! Te escribo de Tap Aruba. Ya está listo tu dashboard de Silver House Barber · Estudio: ahí vas a ver una copia de cada reserva de tu página y cuánta gente la visita.
+
+1) Abrí este link para crear tu contraseña. Sirve una sola vez y vence rápido, así que abrilo ahora:
+[PEGAR EL LINK]
+
+2) Vas a ver “Set your password”. Poné una contraseña de al menos 8 caracteres en “New password”, repetila en “Confirm password” y tocá “Set password”.
+
+3) Para ponerlo en español: en el menú tocá Settings → Language → Español.
+
+Las próximas veces entrás en app.taparuba.com con tu email y tu contraseña. Si el link no te anda, en esa pantalla escribí tu email y tocá “Forgot your password?”.
+
+Te mando la guía paso a paso y todo lo que incluye tu plan. Cualquier duda, escribime por acá.</div>
+  <div class="tip"><b>Al final</b> Pídele al dueño una captura de su dashboard, para confirmar que entró a Silver House y no a otro negocio.</div>
+</section>
+
+<script src="guia.js"></script>
+</body>
+</html>

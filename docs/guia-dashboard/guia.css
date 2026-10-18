@@ -1,0 +1,128 @@
+/* Guía del dashboard · Silver House Barber. A4, se imprime a PDF con Chromium (build.js). */
+:root{
+  --ink:#16171a; --text:#2a2c31; --muted:#62666e; --line:#e2e3e6; --soft:#f5f5f6;
+  --night:#0c0c0e; --gold:#a8844a; --gold-ink:#7d6132; --tip:#f7f4ee;
+  --silver:linear-gradient(150deg,#fdfdfd 0%,#dfe1e4 42%,#aab0b7 100%);
+}
+@page{ size:A4; margin:0 }
+*{ box-sizing:border-box }
+html,body{ margin:0; padding:0; background:#8a8d93 }
+body{ font-family:'Hanken Grotesk', Arial, sans-serif; color:var(--text); font-size:10.2pt; line-height:1.5;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact }
+@media screen{ .page{ margin:10mm auto; box-shadow:0 4px 24px rgba(0,0,0,.25) } }
+@media print{ html,body{ background:#fff } }
+
+.page{ width:210mm; height:297mm; position:relative; overflow:hidden; background:#fff;
+  padding:15mm 17mm 20mm; page-break-after:always; break-after:page }
+.page:last-of-type{ page-break-after:auto; break-after:auto }
+.foot{ position:absolute; left:17mm; right:17mm; bottom:9mm; display:flex; justify-content:space-between;
+  font-size:7.6pt; color:#8a8d93; letter-spacing:.02em }
+
+b{ color:var(--ink); font-weight:700 }
+p{ margin:0 0 3mm }
+h3{ font-size:11.4pt; color:var(--ink); margin:6mm 0 2.6mm; font-weight:700 }
+h3.first{ margin-top:0 }
+
+/* ---------- portada ---------- */
+.cover{ padding:0; background:#fff }
+.cover-card{ position:absolute; inset:9mm 9mm 13mm; border-radius:5mm; color:#fff; padding:16mm 16mm 13mm;
+  background:radial-gradient(120% 70% at 85% 0%, #24252a 0%, rgba(36,37,42,0) 60%), var(--night);
+  display:flex; flex-direction:column }
+.cover-logo{ width:58mm; height:auto; margin-left:-3mm; filter:drop-shadow(0 6px 18px rgba(0,0,0,.6)) }
+.cover-main{ margin-top:auto; margin-bottom:auto; padding-top:20mm }
+.cover .bar{ width:16mm; height:1.4mm; background:linear-gradient(90deg,#d9bf86,#a8844a); border-radius:1mm; margin-bottom:8mm }
+.cover h1{ font-family:'Cinzel', serif; font-weight:700; font-size:31pt; line-height:1.12; margin:0 0 6mm; letter-spacing:.01em; color:#e9ebee }
+.cover-main p{ color:#b9bcc2; font-size:11.5pt; max-width:125mm; margin:0 }
+.cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:8.6pt; color:#8d9097; line-height:1.7 }
+.powered{ text-align:right; font-size:8pt }
+.powered img{ display:block; height:6.2mm; margin-top:1.6mm; margin-left:auto }
+.foot-cover{ position:absolute; left:17mm; right:17mm; bottom:4.5mm; display:flex; justify-content:space-between; font-size:7.6pt; color:#8a8d93 }
+
+/* ---------- índice ---------- */
+.toc-title{ font-family:'Cinzel', serif; font-size:21pt; color:var(--ink); margin:2mm 0 7mm; font-weight:700 }
+.toc{ list-style:none; margin:0; padding:0 }
+.toc li{ display:flex; align-items:baseline; gap:4mm; padding:2.55mm 0; border-bottom:.3mm solid var(--line); font-size:11pt; color:var(--ink) }
+.toc .tn{ width:8mm; font-weight:800; color:var(--gold-ink) }
+.toc .tt{ flex:1 }
+.toc .tp{ color:var(--muted); font-size:9.5pt }
+.toc-note{ margin-top:7mm; font-size:8.8pt; color:var(--muted) }
+
+/* ---------- capítulos ---------- */
+.ch{ display:flex; align-items:center; gap:4mm; font-family:'Cinzel', serif; font-weight:700; font-size:17pt; color:var(--ink);
+  margin:0 0 6mm; padding-bottom:4mm; border-bottom:.35mm solid #cfd1d5; line-height:1.15 }
+.ch .n{ flex:none; width:10mm; height:10mm; border-radius:50%; background:var(--silver); color:var(--ink);
+  font-family:'Hanken Grotesk', Arial, sans-serif; font-weight:800; font-size:12pt; display:flex; align-items:center; justify-content:center;
+  box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.18), 0 .6mm 1.4mm rgba(0,0,0,.18) }
+
+ol.steps{ list-style:none; counter-reset:s; margin:0 0 3mm; padding:0 }
+ol.steps li{ counter-increment:s; position:relative; padding-left:9mm; margin-bottom:2.3mm; min-height:6mm }
+ol.steps li::before{ content:counter(s); position:absolute; left:0; top:.1mm; width:5.6mm; height:5.6mm; border-radius:50%;
+  background:var(--ink); color:#fff; font-size:8.4pt; font-weight:700; display:flex; align-items:center; justify-content:center }
+
+.tip{ background:var(--tip); border-left:1mm solid var(--gold); border-radius:0 1.6mm 1.6mm 0; padding:3mm 4mm; margin:4mm 0; font-size:9.6pt }
+.tip > b:first-child{ color:var(--gold-ink); margin-right:1.5mm }
+
+table.t2{ width:100%; border-collapse:collapse; margin:1mm 0 4mm; font-size:9.6pt }
+table.t2 td{ padding:2.2mm 2.5mm; border-bottom:.3mm solid var(--line); vertical-align:top }
+table.t2 tr:first-child td{ border-top:.3mm solid var(--line) }
+table.t2 td:first-child{ width:34%; font-weight:700; color:var(--ink) }
+table.quotes td:first-child{ width:22% }
+table.quotes td:last-child{ font-style:italic }
+table.links td:first-child{ width:26% }
+.url{ font-family:'Space Mono', monospace; font-size:8.6pt; color:var(--ink); background:var(--soft); padding:.4mm 1.4mm; border-radius:1mm; word-break:break-all }
+
+.cards{ display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:4mm 0 }
+.card{ border:.3mm solid var(--line); border-radius:2.4mm; padding:4mm 4.4mm; background:#fff }
+.card h4{ margin:0 0 2mm; font-size:10.6pt; color:var(--ink); display:flex; align-items:center; gap:2mm }
+.card h4::before{ content:''; width:3.4mm; height:.9mm; background:var(--gold); border-radius:1mm }
+.card p{ margin:0; font-size:9.4pt }
+
+figure{ margin:0 }
+figcaption{ font-size:8.2pt; color:var(--muted); margin-top:1.6mm; text-align:center }
+.shot{ margin:3mm 0 5mm }
+.shot img{ display:block; width:100%; border:.3mm solid #d5d7db; border-radius:2mm; box-shadow:0 1mm 4mm rgba(0,0,0,.08) }
+.shot.missing, .phones figure.missing{ border:.4mm dashed #c4c7cc; border-radius:2mm; padding:12mm 4mm; text-align:center; color:#9a9da3 }
+
+.split{ display:grid; grid-template-columns:1fr 62mm; gap:8mm; align-items:start }
+.split .phone-shot{ margin:0 }
+.phone-shot img{ border-radius:4mm }
+
+.phones{ display:grid; gap:5mm; margin:3mm 0 6mm; align-items:start }
+.phones.five{ grid-template-columns:repeat(3,1fr) }
+.phones.three{ grid-template-columns:repeat(3,1fr) }
+.phones img{ display:block; width:100%; border-radius:3mm; border:.3mm solid #d5d7db; box-shadow:0 1mm 4mm rgba(0,0,0,.08) }
+.phones.five img{ height:104mm; object-fit:cover; object-position:top }
+.phones figcaption{ text-align:left; font-size:8.4pt; color:var(--text) }
+
+/* ---------- flujo (cap. 1) ---------- */
+.flow{ display:flex; align-items:center; gap:2.5mm; margin:5mm 0 6mm }
+.flow-col{ display:flex; flex-direction:column; gap:3mm; flex:1.1 }
+.flow > .flow-box{ flex:1 }
+.flow-box{ border:.3mm solid var(--line); border-radius:2.4mm; padding:3.2mm 3.4mm; background:#fff }
+.flow-box.wa{ border-color:#bfe6cc; background:#f3fbf6 }
+.flow-box.dash{ border-color:#d6d8dc; background:var(--soft) }
+.flow-k{ font-size:7.4pt; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700 }
+.flow-t{ font-weight:800; color:var(--ink); font-size:10pt; margin:.6mm 0 .8mm }
+.flow-s{ font-size:8.6pt; line-height:1.4 }
+.flow-arrow{ color:var(--gold); font-size:15pt; font-weight:700 }
+
+/* ---------- WhatsApp (cap. 6) ---------- */
+.wa-chat{ background:#efe7de; border-radius:3mm; padding:0 0 3mm; overflow:hidden; border:.3mm solid #ddd3c7;
+  font-family:'Hanken Grotesk', Arial, sans-serif, 'Noto Color Emoji' }
+.wa-head{ background:#1f2c33; color:#e9edef; font-weight:700; font-size:9pt; padding:2.6mm 3.4mm; margin-bottom:3mm }
+.wa-msg{ white-space:pre-wrap; background:#fff; margin:0 3mm 2.4mm 3mm; padding:2.2mm 2.8mm 4.4mm; border-radius:0 2mm 2mm 2mm;
+  font-size:8.3pt; line-height:1.38; color:#111; position:relative; box-shadow:0 .3mm .6mm rgba(0,0,0,.1); width:86% }
+.wa-msg.me{ background:#d9fdd3; margin-left:auto; margin-right:3mm; border-radius:2mm 0 2mm 2mm; white-space:normal }
+.wa-time{ position:absolute; right:2mm; bottom:1mm; font-size:6.6pt; color:#667781 }
+
+/* ---------- preguntas ---------- */
+.faq p{ margin:0 0 3.2mm; font-size:9.6pt }
+.faq p.q{ font-weight:800; color:var(--ink); margin:0 0 1mm; font-size:10pt }
+.split.bell{ grid-template-columns:1fr 70mm; margin-top:5mm }
+.split.bell .shot{ margin:0 }
+.phone-shot.small{ width:52mm; justify-self:end }
+.shot.narrow{ width:150mm; margin-left:auto; margin-right:auto }
+.shot.narrow.web{ width:132mm }
+.shot.email{width:96mm;margin-left:auto;margin-right:auto}
+.shot.narrow.agenda{width:128mm}
+.shot.settings{width:92%;margin-left:auto;margin-right:auto}
